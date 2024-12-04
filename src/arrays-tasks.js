@@ -92,8 +92,10 @@ function findAllOccurrences(arr, item) {
  *    removeFalsyValues([ 1, 2, 3, 4, 5, 'false' ]) => [ 1, 2, 3, 4, 5, 'false' ]
  *    removeFalsyValues([ false, 0, NaN, '', undefined ]) => [ ]
  */
-function removeFalsyValues(arr) {}
-console.log(removeFalsyValues([0, false, 'cat', NaN, true, '']));
+function removeFalsyValues(/* arr */) {
+  throw new Error('Not implemented');
+}
+// console.log(removeFalsyValues([0, false, 'cat', NaN, true, '']));
 
 /**
  * Returns an array containing the lengths of each string in a specified array of strings.
