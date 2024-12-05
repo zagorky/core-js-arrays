@@ -93,11 +93,8 @@ function findAllOccurrences(arr, item) {
  *    removeFalsyValues([ false, 0, NaN, '', undefined ]) => [ ]
  */
 function removeFalsyValues(arr) {
-  const newarr = [];
-  arr.map((el) => (Boolean(el) === true ? newarr.push(el) : null));
-  return newarr;
+  return arr.filter((el) => Boolean(el) === true);
 }
-// console.log(removeFalsyValues([0, false, 'cat', NaN, true, '']));
 
 /**
  * Returns an array containing the lengths of each string in a specified array of strings.
@@ -113,7 +110,6 @@ function getStringsLength(arr) {
   const newarr = [];
   arr.map((el) => newarr.push(el.length));
   return newarr;
-  // return Array.from(arr);
 }
 
 /**
@@ -131,8 +127,12 @@ function getStringsLength(arr) {
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
 function getAverage(arr) {
-  const newarr = arr.reduce((acc, el) => acc + el, 0);
-  return newarr / arr.length;
+  if (arr.length < 1) {
+    return 0;
+  }
+  return (
+    Math.ceil((arr.reduce((acc, el) => acc + el, 0) / arr.length) * 100) / 100
+  );
 }
 
 /**
