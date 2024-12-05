@@ -391,9 +391,7 @@ function getElementByIndices(/* arr, indices */) {
  *  getFalsyValuesCount([ null, undefined, NaN, false, 0, '' ]) => 6
  */
 function getFalsyValuesCount(arr) {
-  const newarr = [];
-  arr.map((el) => (Boolean(el) === false ? newarr.push(el) : null));
-  return newarr.length;
+  return arr.filter((elem) => !elem).length;
 }
 
 /**
