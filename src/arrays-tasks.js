@@ -93,7 +93,7 @@ function findAllOccurrences(arr, item) {
  *    removeFalsyValues([ false, 0, NaN, '', undefined ]) => [ ]
  */
 function removeFalsyValues(arr) {
-  return arr.filter((el) => Boolean(el) === true);
+  return arr.filter((el) => el);
 }
 
 /**
@@ -145,8 +145,9 @@ function getAverage(arr) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  const elemLength = arr[0].length;
+  return arr.every((elem) => elem.length === elemLength);
 }
 
 /**
