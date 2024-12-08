@@ -374,8 +374,8 @@ function generateOdds(len) {
  *   getElementByIndices(['one','two','three'], [2]) => 'three'  (arr[2])
  *   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
  */
-function getElementByIndices(/* arr, indices */) {
-  throw new Error('Not implemented');
+function getElementByIndices(arr, indices) {
+  return indices.reduce((acc, i) => acc[i], arr);
 }
 
 /**
@@ -413,7 +413,9 @@ function getFalsyValuesCount(arr) {
  *                              [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
-  return Array.from({ length: n }, () => Array(n).fill(0));
+  return Array.from({ length: n }, (row, i) =>
+    Array.from({ length: n }, (col, j) => (i === j ? 1 : 0))
+  );
 }
 
 /**
@@ -495,9 +497,13 @@ function findCommonElements(arr1, arr2) {
  *    findLongestIncreasingSubsequence([3, 10, 2, 1, 20]) => 2
  *    findLongestIncreasingSubsequence([50, 3, 10, 7, 40, 80]) => 3
  */
-function findLongestIncreasingSubsequence(/* nums */) {
-  throw new Error('Not implemented');
+function findLongestIncreasingSubsequence(nums) {
+  return nums.reduce((acc, elem) => {
+    return elem > elem[i - 1] ? acc + elem : acc;
+  }, 0);
 }
+
+console.log(findLongestIncreasingSubsequence([3, 10, 2, 1, 20]));
 
 /**
  * Propagates every item in sequence its position times
